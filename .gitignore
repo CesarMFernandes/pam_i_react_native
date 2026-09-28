@@ -9,6 +9,9 @@ dist/
 web-build/
 expo-env.d.ts
 
+# bundle de fumaça (ver AGENTS.md)
+.smoke/
+
 # Native
 .kotlin/
 *.orig.*

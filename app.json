@@ -1,25 +1,90 @@
 {
   "expo": {
-    "name": "app-completo-rn",
-    "slug": "app-completo-rn",
+    "name": "Rota RN",
+    "slug": "rota-rn",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "scheme": "rotarn",
+    "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "br.edu.etec.rotarn",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "O app usa sua localização para mostrar onde você está e desenhar o trajeto da rota.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "O app registra o trajeto mesmo com a tela bloqueada ou o app em segundo plano.",
+        "NSMotionUsageDescription": "O app usa o acelerômetro e o giroscópio para contar passos e exibir a bússola.",
+        "NSContactsUsageDescription": "O app lê seus contatos para você compartilhar o resumo do treino com alguém.",
+        "NSCameraUsageDescription": "O app usa a câmera para registrar fotos do trajeto.",
+        "NSPhotoLibraryUsageDescription": "O app acessa a galeria para anexar fotos ao seu registro de rotas.",
+        "NSPhotoLibraryAddUsageDescription": "O app salva no álbum as imagens geradas a partir do seu trajeto."
+      }
     },
     "android": {
+      "package": "br.edu.etec.rotarn",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0F766E",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_LOCATION",
+        "HIGH_SAMPLING_RATE_SENSORS",
+        "READ_CONTACTS",
+        "WRITE_CONTACTS",
+        "CAMERA",
+        "READ_MEDIA_IMAGES",
+        "POST_NOTIFICATIONS",
+        "VIBRATE"
+      ]
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#0F766E"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "O app acessa a galeria para anexar fotos ao seu registro de rotas.",
+          "cameraPermission": "O app usa a câmera para registrar fotos do trajeto."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "O app registra o trajeto mesmo com a tela bloqueada ou o app em segundo plano."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#0F766E"
+        }
+      ],
+      [
+        "expo-sqlite",
+        {
+          "enableFTS": true
+        }
+      ],
+      "expo-background-task",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }

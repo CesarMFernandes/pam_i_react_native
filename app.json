@@ -81,7 +81,8 @@
         }
       ],
       "expo-background-task",
-      "expo-font"
+      "expo-font",
+      "expo-sharing"
     ],
     "experiments": {
       "typedRoutes": true
